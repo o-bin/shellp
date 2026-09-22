@@ -1,0 +1,42 @@
+# Build directories and tool caches
+app/build/
+app/.dart_tool/
+app/.pub-cache/
+app/.pub/
+
+# IDE and OS specific files
+app/.idea/
+app/*.iml
+.DS_Store
+Thumbs.db
+
+# Compiled C/C++ Object files
+*.o
+*.obj
+*.ko
+*.elf
+*.ilk
+*.map
+*.exp
+
+# Precompiled binaries and libraries
+prebuilt/
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+*.exe
+*.out
+*.app
+*.bin
+
+# Archives and Packages
+*.tar.gz
+*.tar.xz
+*.deb
+*.apk
+*.aab
+
+# Logs
+*.log
