@@ -5,6 +5,7 @@
         android:label="shellp"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round">
+        <meta-data android:name="flutterEmbedding" android:value="2" />
         <activity
             android:name="com.shellp.app.MainActivity"
             android:label="shellp"

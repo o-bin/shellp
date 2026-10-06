@@ -35,8 +35,13 @@ prebuilt/
 *.tar.gz
 *.tar.xz
 *.deb
-*.apk
 *.aab
 
 # Logs
 *.log
+repos/talloc-2.4.2/bin/
+repos/talloc-2.4.2/**/__pycache__/
+repos/talloc-2.4.2/third_party/waf/waflib/__pycache__/
+repos/talloc-2.4.2/third_party/waf/waflib/Tools/__pycache__/
+repos/talloc-2.4.2/buildtools/wafsamba/__pycache__/
+native/build/
