@@ -40,3 +40,5 @@ prebuilt/
 
 # Logs
 *.log
+repos/
+native/build/
