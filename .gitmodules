@@ -1,0 +1,9 @@
+[submodule "repos/proot"]
+	path = repos/proot
+	url = https://github.com/termux/proot
+[submodule "repos/proot-distro"]
+	path = repos/proot-distro
+	url = https://github.com/termux/proot-distro
+[submodule "repos/yaft"]
+	path = repos/yaft
+	url = https://github.com/uobikiemukot/yaft
