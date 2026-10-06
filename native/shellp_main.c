@@ -1183,6 +1183,13 @@ static void setup_environment(TermState *ts, struct android_app *app, const char
     unlink(ts->busybox_bin);
     symlink(ts->lib_busybox, ts->busybox_bin);
 
+    char talloc_so2[512];
+    char talloc_so[512];
+    snprintf(talloc_so2, sizeof(talloc_so2), "%s/libtalloc.so.2", ts->bin_dir);
+    snprintf(talloc_so, sizeof(talloc_so), "%s/libtalloc.so", lib_dir);
+    unlink(talloc_so2);
+    symlink(talloc_so, talloc_so2);
+
     const char *tools[] = { "sh", "wget", "tar", "xz", "gzip", "cat", "mkdir", "rm", "touch", "chmod", "echo", "nslookup", NULL };
     for (int i = 0; tools[i]; i++) {
         char link_path[512];
@@ -1367,6 +1374,14 @@ static void launch_subsystem(TermState *ts) {
             ensure_subsystem_permissions(ts->rootfs_dir);
 
             // Set PROOT required environment variables
+            char ld_path[1024];
+            // Compute lib_dir by taking dirname of ts->lib_proot
+            char tmp_path[512];
+            strncpy(tmp_path, ts->lib_proot, sizeof(tmp_path) - 1);
+            tmp_path[sizeof(tmp_path) - 1] = '\0';
+            snprintf(ld_path, sizeof(ld_path), "%s:%s", dirname(tmp_path), ts->bin_dir);
+            setenv("LD_LIBRARY_PATH", ld_path, 1);
+
             setenv("PROOT_TMP_DIR", ts->tmp_dir, 1);
             setenv("TMPDIR", "/tmp", 1);
             if (ts->lib_loader[0]) {
